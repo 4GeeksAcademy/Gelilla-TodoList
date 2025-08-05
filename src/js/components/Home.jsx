@@ -11,6 +11,24 @@ const Home = () => {
     { id: 5, text: 'make the bed', isEditing: false }
   ]);
 
+const [newTodoTxt,setNewTodoTxt]=useState('');
+
+const handleNewTodo=(value)=>{
+  setNewTodoTxt(value)
+  console.log(todos)
+  }
+
+  const addTodo=()=>{
+    if(newTodoTxt.trim() === '') return;
+
+    const newTodo={
+      id:todos.length+1,
+      text:newTodoTxt.trim(),
+      isEditing:false
+    };
+    setTodos([...todos,newTodo])
+    setNewTodoTxt('');
+  };
   const handleEdit = (id) => {
     setTodos(todos.map(todo => 
       todo.id === id ? { ...todo, isEditing: true } : todo
@@ -38,6 +56,9 @@ const Home = () => {
       <h1>Todo List</h1>
       <div className="card" style={{ width: "18rem" }}>
         <ul className="list-group list-group-flush">
+          <input placeholder="what needs to be done" value={newTodoTxt} type="text" onChange={(e)=>handleNewTodo(e.target.value)}  onKeyDown={(e) => {
+                    if (e.key === "Enter") addTodo();
+                  }} className="form-control my-2" />
           {todos.map(todo => (
             <li className="list-group-item d-flex" key={todo.id}>
               {todo.isEditing ? (
