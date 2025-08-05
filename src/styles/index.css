@@ -1,11 +1,61 @@
-/* 
+@import "tailwindcss";
+/* @plugin "daisyui"; */
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+body{
+    background-color: rgb(214, 208, 208);
+  
+}
+h1{
+    color: gray;
+    margin-left: 40%;
+}
+.card{
+     width:500px;
+    margin:auto;
+    margin-top: 30px;
+}
 
-*/
+.contianer{
+    background-color: white;
+}
+
+.card-stack {
+position:relative;
+width:300px;
+height:auto;
+margin:100px auto;
+}
+.card {
+position: absolute;
+width: 100%;
+height:60px;
+background:white;
+border-radius:6px;
+box-shadow:0 2px 4px rgba(0,0,0,0,0.15);
+}
+.card:nth-child(1) {
+}
+.card:nth-child(2) {
+}
+.card:nth-child(3) {
+}
+.main-card{
+position:relative;
+z-index:99;
+padding:10px;
+display:flex;
+align-items:center;
+font-family:sans-serif;
+font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
